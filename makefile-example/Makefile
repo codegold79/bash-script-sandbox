@@ -22,3 +22,10 @@ extract-%:
 	$(eval TXT = $(word 2,$(subst -, ,$*)))
 	@echo TXT: ${TXT}
 # To get TXT to echo the word 'galore', use `make extract-words-galore`.
+
+.PHONY: get-first_word
+get-first_word:
+# If you want to get the command sent to make, use $(MAKECMDGOALS).
+	@echo MAKECMDGOALS is \"$(MAKECMDGOALS)\".
+# Here is an example of the firstword function.
+	@echo The first word includes hyphens and underscores. It is, \"$(firstword $(MAKECMDGOALS))\".
